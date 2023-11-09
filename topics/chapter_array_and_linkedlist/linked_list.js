@@ -1,0 +1,92 @@
+/**
+ * File: linked_list.js
+ * Created Time: 2022-12-12
+ * Author: IsChristina (christinaxia77@foxmail.com), Justin (xiefahit@gmail.com)
+ */
+
+const { printLinkedList } = require('../modules/PrintUtil');
+const { ListNode } = require('../modules/ListNode');
+
+/* 在链表的节点 n0 之后插入节点 P */
+/ * Insert node P after the node n0 of the linked list n0 */
+function insert(n0, P) {
+    const n1 = n0.next;
+    P.next = n1;
+    n0.next = P;
+}
+
+/* 删除链表的节点 n0 之后的首个节点 */
+/ * The first node after the node n0 deleted the linked list */
+function remove(n0) {
+    if (!n0.next) return;
+    // n0 -> P -> n1
+    const P = n0.next;
+    const n1 = P.next;
+    n0.next = n1;
+}
+
+/* 访问链表中索引为 index 的节点 */
+/ * Node of Index in the linked list */
+function access(head, index) {
+    for (let i = 0; i < index; i++) {
+        if (!head) {
+            return null;
+        }
+        head = head.next;
+    }
+    return head;
+}
+
+/* 在链表中查找值为 target 的首个节点 */
+/ * Find the first node of the value of target in the linked list */
+function find(head, target) {
+    let index = 0;
+    while (head !== null) {
+        if (head.val === target) {
+            return index;
+        }
+        head = head.next;
+        index += 1;
+    }
+    return -1;
+}
+
+/* Driver Code */
+/* Driver Code */
+/* 初始化链表 */
+/ * Initialized linked list */
+// 初始化各个节点
+const n0 = new ListNode(1);
+const n1 = new ListNode(3);
+const n2 = new ListNode(2);
+const n3 = new ListNode(5);
+const n4 = new ListNode(4);
+// 构建引用指向
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
+console.log('初始化的链表为');
+printLinkedList(n0);
+
+/* 插入节点 */
+/ * Insert node */
+insert(n0, new ListNode(0));
+console.log('插入节点后的链表为');
+printLinkedList(n0);
+
+/* 删除节点 */
+/ * Delete node */
+remove(n0);
+console.log('删除节点后的链表为');
+printLinkedList(n0);
+
+/* 访问节点 */
+/ * Access node */
+const node = access(n0, 3);
+console.log('链表中索引 3 处的节点的值 = ' + node.val);
+
+/* 查找节点 */
+/ * Find node */
+const index = find(n0, 2);
+console.log('链表中值为 2 的节点的索引 = ' + index);
