@@ -1,25 +1,22 @@
 function romanToInteger(s: string): any {
-    let dict = {
-        "I": 1,
-        "V": 5,
-        "X": 10,
-        "L": 50,
-        "C": 100,
-        "D": 500,
-        "M": 1000,
-    }
-    console.log(dict['I'])
-    
-    let strArr: string[] = Array.from(s.toUpperCase())
-    for(let i: number=strArr.length-1; i>0; i--){
-        let res: number = dict[strArr[0]]
-        if(strArr.indexOf(dict[strArr[i]])>strArr.indexOf(dict[strArr[i-1]])){
-            res -= dict[strArr[i]]
-        }else{
-            res += dict[strArr[i]]
+    let dict = [
+        {sign: "I", value: 1},
+        {sign: "V", value: 5},
+        {sign: "X", value: 10},
+        {sign: "L", value: 50},
+        {sign: "C", value: 100},
+        {sign: "D", value: 500},
+        {sign: "M", value: 1000},
+    ]
+    let total: number = 0
+    for(let i= s.length-1; i>0; i--){
+        const value1 = dict.findIndex(num=>num.sign===s[i])
+        const value2 = dict.findIndex(num=>num.sign===s[i-1])
+        if(value1<value2){
+            total += value1
         }
-        return res
     }
+
 };
 
 romanToInteger("I")

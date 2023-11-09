@@ -1,4 +1,4 @@
-function twoSum(nums: number[], target: number): number[] {
+export default function twoSum(nums: number[], target: number): number[] {
     let pos1: number = 0, pos2: number = 0;
     for(let i=0; i<nums.length; i++){
         for(let j=i+1; j<nums.length; j++){

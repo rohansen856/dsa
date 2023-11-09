@@ -1,4 +1,4 @@
-function isPalindrome(x: number): any {
+export default function isPalindrome(x: number): any {
     let nums = Array.from(x.toString())
     let len = nums.length
     for(let i=0; i<len; i++){
