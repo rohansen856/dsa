@@ -1,14 +1,24 @@
-function lengthOfLastWord(s: string): any {
-    if(!s.includes(" ")) return s.length
-
-    const sArr: string[] = s.split(" ")
-    for(let i=sArr.length-1; i>0; i--){
-        if(sArr[i] !== "" && sArr[i] !== " ") return sArr[i]
+export default function lengthOfLastWord(s: string): any {
+    if (!s.includes(" ")) return s.length
+    let index: number[] = []
+    let started: boolean = false
+    for (let i = s.length - 1; i > -1; i--) {
+        console.log(s[i])
+        if (s[i] !== " " && started === false) {
+            index.push(i)
+            started = true
+        }
+        if (started === true && s[i] === " ") {
+            index.push(i)
+            break
+        }
     }
-    return sArr
+    return index.length > 0
+        ? (index.length === 0 ? 1 : index[0] - (index[1] ?? -1))
+        : 0
 };
 
-let s="a  "
+let s = "abb  "
 
 console.log(lengthOfLastWord(s))
 // console.log(" a".split(" "))
