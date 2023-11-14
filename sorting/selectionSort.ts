@@ -4,7 +4,7 @@
 export default function selectionSort(arr: number[]): number[] {
     const n: number = arr.length;
 
-    for (let i: number = 0; i < n-1; i++) {
+    for (let i: number = 0; i < n - 1; i++) {
         let minIndex = i;
 
         for (let j: number = i + 1; j < n; j++) {
@@ -13,9 +13,9 @@ export default function selectionSort(arr: number[]): number[] {
 
         const temp: number = arr[i];
         arr[i] = arr[minIndex];
-        arr[minIndex] = temp; 
+        arr[minIndex] = temp;
     }
-    
+
     return arr;
 }
 
