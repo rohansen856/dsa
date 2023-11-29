@@ -13,6 +13,7 @@ export default function mergeSort(arr: number[]): number[] {
     return merge(mergeSort(left), mergeSort(right));
 }
 
+
 function merge(left: number[], right: number[]): number[] {
     const result: number[] = [];
     let leftIndex = 0;
