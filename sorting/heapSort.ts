@@ -1,3 +1,6 @@
+//Time complexity: O(n log n)
+//Space complexity: O(1)
+
 function heapify(arr: number[], n: number, i: number) {
     let largest = i;
     const left = 2 * i + 1;

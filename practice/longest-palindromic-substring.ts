@@ -1,29 +1,32 @@
-function subSets(arr: string): string[]{
+function longestPalindrome(s: string): string {
+    const len = s.length;
 
-    return []
-}
+    let maxLength = 1, startPt = 0;
 
-function longestPalindrome(s: string): string[] {
-    const len = s.length
-    const substrings: string[] = []
-    for(let i: number=0; i<s.length; i++){
-        const pivot = i
-        let start: number=i, end: number=i
-        for(let j: number=i; j>0; j--){
-            console.log(j)
-            // console.log(`${start}   ${end}`)
-            if(s[j-1]===s[j+1]){
-                start--; end++;
-                continue
+    for (let i = 0; i < len; i++) {
+        let start = i, end = i;
+        let resLen = 0
+        if (s[start - 1] === s[start] || s[start + 1] === s[start]) {
+            if (s[start - 1] === s[start]) {
+                startPt = start
+                maxLength = 2
             }
-            else{
-                start=j; end=j
-            }
-            if(start === end ) continue
-            substrings.push(s.substring(start, end))
+        }
+        while (s[start - 1] === s[end + 1] && start > -1 && end < len) {
+            start--;
+            end++;
+        }
+        resLen = end - start + 1
+        if (resLen >= maxLength) {
+            startPt = start;
+            maxLength = resLen
         }
     }
-    return substrings
-};
 
-console.log(longestPalindrome("ababa"))
+    let res = ""
+    for (let i = startPt; i < startPt + maxLength; i++)
+        res += (s[i] === undefined ? "" : s[i]);
+    return res
+}
+
+console.log(longestPalindrome("sstss"))

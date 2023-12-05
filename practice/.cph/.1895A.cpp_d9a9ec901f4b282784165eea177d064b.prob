@@ -1,0 +1,1 @@
+{"name":"Local: 1895A","url":"d:\\dsa\\practice\\1895A.cpp","tests":[{"id":1701259574945,"input":"3\n5 7 2\n10 5 0\n5 8 2","output":"7\n10\n9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\practice\\1895A.cpp","group":"local","local":true}
