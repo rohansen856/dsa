@@ -5,6 +5,17 @@
 
 using namespace std;
 
+int sumOfDigits(int number)
+{
+    int sum = 0;
+    while (number != 0)
+    {
+        sum += number % 10;
+        number /= 10;
+    }
+    return sum;
+}
+
 int main()
 {
     int t;
@@ -13,20 +24,12 @@ int main()
     {
         int x, k;
         cin >> x >> k;
-        if (x < k)
-        {
-            cout << k << endl;
-            continue;
-        }
         int num = x;
-        vector<int> res;
-        while (num >= 10)
+        while ((sumOfDigits(num) % k) > 0)
         {
-            numArr.push_back(num % 10);
-            cout << num % 10;
-            num /= 10;
+            num++;
         }
-        while(num)
+        cout << num << endl;
     }
     return 0;
 }
