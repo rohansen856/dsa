@@ -99,24 +99,37 @@ int main()
     return 0;
 }
 /************************************/
+
+/************************************/
+
+bool isprime(int n)
+{
+    int c = 0;
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+            c++;
+    }
+    return (c == 0);
+}
+
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+
+    int n;
+    cin >> n;
+    int c = 0;
+    for (int i = 1; i <= n; i++)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        int s = 0;
+        for (int j = 2; j <= i / 2; j++)
         {
-            cout << "YES" << endl;
+            if (isprime(j) == 1 && i % j == 0)
+                s++;
         }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        if (s == 2)
+            c++;
     }
+
+    cout << c << endl;
 }
-/************************************/

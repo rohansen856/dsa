@@ -101,22 +101,35 @@ int main()
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        ll n, count = 0, sum = 0, total = 0;
+        cin >> n;
+        ll arr[n];
+        for (ll i = 0; i < n; i++)
         {
-            cout << "YES" << endl;
+            cin >> arr[i];
+            total += arr[i];
+            sum += arr[i] == 1;
         }
-        else
+
+        if (total < ((n - sum) + 2 * sum))
         {
-            cout << "NO" << endl;
+            out("NO");
+            out(endl);
+            continue;
         }
+        if (n == 1)
+        {
+            out("NO");
+            out(endl);
+            continue;
+        }
+        out("YES");
+
+        out(endl);
     }
 }
 /************************************/

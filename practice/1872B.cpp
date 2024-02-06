@@ -105,18 +105,18 @@ void solution()
     in(tt);
     while (tt--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        int n;
+        in(n);
+        int max = INT_MAX;
+        while (n--)
         {
-            cout << "YES" << endl;
+            int d, a, safe;
+            cin >> d >> a;
+            safe = d + ceil((a - 1) / 2);
+            max = max > safe ? safe : max;
         }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        out(max);
+        out(endl);
     }
 }
 /************************************/

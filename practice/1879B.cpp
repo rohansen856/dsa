@@ -101,22 +101,29 @@ int main()
 /************************************/
 void solution()
 {
+    int i, j, n, m, n1 = 0, element, a, b, flag = 0;
     int tt = 1;
     in(tt);
     while (tt--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        ll n;
+        cin >> n;
+        ll arr1[n], arr2[n], a = 0, b = 0;
+        for (ll i = 0; i < n; i++)
         {
-            cout << "YES" << endl;
+            cin >> arr1[i];
+            a += arr1[i];
         }
-        else
+        ll minma = *min_element(arr1, arr1 + n);
+        for (ll i = 0; i < n; i++)
         {
-            cout << "NO" << endl;
+            cin >> arr2[i];
+            b += arr2[i];
         }
+        ll minmb = *min_element(arr2, arr2 + n);
+        ll ans = min((a + n * minmb), (b + n * minma));
+        out(ans);
+        out(endl);
     }
 }
 /************************************/

@@ -101,22 +101,22 @@ int main()
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    ll n, a;
+    in(n);
+    map<ll, ll> mp;
+    for (ll i = 0; i < n; i++)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        in(a);
+        mp[a] = (i + 1);
     }
+    ll m, find, first = 0, last = 0;
+    in(m);
+    for (ll i = 0; i < m; i++)
+    {
+        cin >> find;
+        first += mp[find];
+        last += n - mp[find] + 1;
+    }
+    cout << first << " " << last << endl;
 }
 /************************************/

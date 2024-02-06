@@ -13,6 +13,7 @@ using namespace std;
 // Codechef profile: @saubhagya0111
 // Codeforces profile: @saubhagya011
 #define fio ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define endl
 #define incr_loop(a, n) for (i = a; i < n; i++)
 #define decr_loop(a, b) for (i = a; i > b; i--)
 #define nested_incr_loop(a, b) for (int j = a; j < b; j++)
@@ -57,11 +58,31 @@ void _print(char a) { cerr << a; }
 /************************************/
 void solution();
 /************************************/
-// lcm
-int lcm(int a, int b)
+/// functions
+//--- binarysearch O(log n) O(n)
+int find(const vector<int> &arr, int target)
 {
-    return (a / __gcd(a, b)) * b;
+    int low = 0;
+    int high = arr.size() - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+        {
+            return mid; // Target found
+        }
+        else if (arr[mid] < target)
+        {
+            low = mid + 1; // Continue searching in the right half
+        }
+        else
+        {
+            high = mid - 1; // Continue searching in the left half
+        }
+    }
+    return -1; // Target not found
 }
+//-- sieveOfEratosthenes O(n log log n) O(n)
 vector<int> primeUpto(int limit)
 {
     vector<bool> isPrime(limit + 1, true);
@@ -105,18 +126,17 @@ void solution()
     in(tt);
     while (tt--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        ll i, count = 0;
+        cin >> i;
+        while (i > 0)
         {
-            cout << "YES" << endl;
+            i >> 1;
+            count += (i & 1);
         }
+        if (count > 0)
+            cout << "NO";
         else
-        {
-            cout << "NO" << endl;
-        }
+            cout << "YES";
     }
 }
 /************************************/

@@ -101,22 +101,36 @@ int main()
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int n, m, a, maxm = INT_MIN, value = maxm, index;
+    in(n);
+    in(m);
+    vector<pair<int, int>> mp;
+    for (int i = 1; i <= n; i++)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        cin >> a;
+        if (a <= m)
         {
-            cout << "YES" << endl;
+            value = 0;
         }
         else
         {
-            cout << "NO" << endl;
+            if (a % m != 0)
+            {
+                value = (a / m) + 1;
+            }
+            else
+            {
+                value = (a / m);
+            }
+        }
+        if (value >= maxm)
+        {
+            index = i;
+            maxm = value;
         }
     }
+
+    out(index);
+    out(endl);
 }
 /************************************/

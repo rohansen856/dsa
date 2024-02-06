@@ -57,11 +57,31 @@ void _print(char a) { cerr << a; }
 /************************************/
 void solution();
 /************************************/
-// lcm
-int lcm(int a, int b)
+/// functions
+//--- binarysearch O(log n) O(n)
+int find(const vector<int> &arr, int target)
 {
-    return (a / __gcd(a, b)) * b;
+    int low = 0;
+    int high = arr.size() - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+        {
+            return mid; // Target found
+        }
+        else if (arr[mid] < target)
+        {
+            low = mid + 1; // Continue searching in the right half
+        }
+        else
+        {
+            high = mid - 1; // Continue searching in the left half
+        }
+    }
+    return -1; // Target not found
 }
+//-- sieveOfEratosthenes O(n log log n) O(n)
 vector<int> primeUpto(int limit)
 {
     vector<bool> isPrime(limit + 1, true);
@@ -105,18 +125,16 @@ void solution()
     in(tt);
     while (tt--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
-        {
-            cout << "YES" << endl;
-        }
+        ll n, k, x;
+        cin >> n >> k >> x;
+        ll first_k_sum = (k * (k + 1) / 2);
+        ll last_k_sum = (n * (n + 1) / 2) - ((n - k) * ((n - k) + 1) / 2);
+        if ((x >= first_k_sum) && (x <= last_k_sum))
+            cout
+                << "YES";
         else
-        {
-            cout << "NO" << endl;
-        }
+            cout << "NO";
+        cout << endl;
     }
 }
 /************************************/

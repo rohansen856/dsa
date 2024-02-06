@@ -14,6 +14,15 @@ function recur(n) {
     return n + res;
 }
 
+//same as above
+// function newf(n) {
+//     arr = [1];
+//     for (let i = 2; i <= n; i++) {
+//         arr[i - 1] = arr[i - 2] + i
+//     }
+//     return arr
+// }
+
 /* 使用迭代模拟递归 */
 function forLoopRecur(n) {
     // 使用一个显式的栈来模拟系统调用栈
@@ -25,7 +34,7 @@ function forLoopRecur(n) {
         stack.push(i);
     }
     // 归：返回结果
-    while (stack.length) { 
+    while (stack.length) {
         // 通过“出栈操作”模拟“归”
         res += stack.pop();
     }
@@ -52,18 +61,17 @@ function fib(n) {
 }
 
 /* Driver Code */
-const n = 5;
+const n = 10;
 let res;
 
 res = recur(n);
 console.log(`递归函数的求和结果 res = ${res}`);
 
 res = forLoopRecur(n);
-console.log(`使用迭代模拟递归的求和结果 res = ${res}`);
+console.log(`尾递归函数的求和结果 res = ${res}`);
 
 res = tailRecur(n, 0);
 console.log(`尾递归函数的求和结果 res = ${res}`);
 
 res = fib(n);
 console.log(`斐波那契数列的第 ${n} 项为 ${res}`);
-

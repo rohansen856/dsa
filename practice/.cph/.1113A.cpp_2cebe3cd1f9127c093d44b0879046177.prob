@@ -1,0 +1,1 @@
+{"name":"Local: 1113A","url":"d:\\dsa\\practice\\1113A.cpp","tests":[{"id":1705152080089,"input":"4 2\n","output":"4"},{"id":1705152633828,"input":"7 6\n","output":"6"},{"id":1705153244633,"input":"12 89","output":"30"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\practice\\1113A.cpp","group":"local","local":true}

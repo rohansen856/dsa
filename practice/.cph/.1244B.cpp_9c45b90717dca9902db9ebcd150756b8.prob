@@ -1,0 +1,1 @@
+{"name":"Local: 1244B","url":"d:\\dsa\\practice\\1244B.cpp","tests":[{"id":1706216660419,"input":"4\n5\n00100\n8\n00000000\n5\n11111\n3\n110","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\practice\\1244B.cpp","group":"local","local":true}

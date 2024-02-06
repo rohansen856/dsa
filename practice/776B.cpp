@@ -101,21 +101,43 @@ int main()
 /************************************/
 void solution()
 {
+    int i, j, n, m, n1 = 0, element, a, b, flag = 0;
     int tt = 1;
-    in(tt);
+    // in(tt);
     while (tt--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        ll n;
+        in(n);
+        vll arr(n + 2, 1);
+        for (ll i = 2; i < (n + 2); i++)
         {
-            cout << "YES" << endl;
+            if (arr[i] == 1)
+            {
+                for (ll j = i * i; j < (n + 2); j += i)
+                {
+                    arr[j] = 2;
+                }
+            }
+        }
+        if (n < 3)
+        {
+            out("1");
+            out(endl);
+            for (int i = 2; i < arr.size(); i++)
+            {
+                out(arr[i]);
+                out(" ");
+            }
         }
         else
         {
-            cout << "NO" << endl;
+            out("2");
+            out(endl);
+            for (int i = 2; i < arr.size(); i++)
+            {
+                out(arr[i]);
+                out(" ");
+            }
         }
     }
 }

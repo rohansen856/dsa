@@ -1,1 +1,1 @@
-{"name":"Local: 268A","url":"d:\\dsa\\practice\\268A.cpp","tests":[{"id":1700998599741,"input":"3\n1 2\n2 4\n3 4\n","output":"1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\practice\\268A.cpp","group":"local","local":true}
+{"name":"Local: 268A","url":"d:\\dsa\\practice\\268A.cpp","tests":[{"id":1700998599741,"input":"3\n1 2\n2 4\n3 4","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\practice\\268A.cpp","group":"local","local":true}

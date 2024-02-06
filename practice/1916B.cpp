@@ -8,6 +8,7 @@
 #include <map>
 #include <random>
 #include <chrono>
+#include <numeric>
 using namespace std;
 // Problem Code/Link:
 // Codechef profile: @saubhagya0111
@@ -24,7 +25,6 @@ typedef long long ll;
 #define sort_all(v) sort(all(v));
 #define PI 3.141592653589793238462
 #define space cout << " ";
-#define gcd(a, b) __gcd(a, b);
 #define all(x) x.begin(), x.end()
 #define in(x) cin >> x;
 #define in2(x, y) cin >> x >> y;
@@ -57,11 +57,13 @@ void _print(char a) { cerr << a; }
 /************************************/
 void solution();
 /************************************/
+/// functions
 // lcm
 int lcm(int a, int b)
 {
     return (a / __gcd(a, b)) * b;
 }
+//-- sieveOfEratosthenes O(n log log n) O(n)
 vector<int> primeUpto(int limit)
 {
     vector<bool> isPrime(limit + 1, true);
@@ -105,18 +107,18 @@ void solution()
     in(tt);
     while (tt--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
-        {
-            cout << "YES" << endl;
-        }
+        ll a, b;
+        cin >> a >> b;
+        if (a == 1)
+            cout << b * b;
         else
         {
-            cout << "NO" << endl;
+            if (lcm(a, b) == b)
+                cout << (b * b) / a;
+            else
+                cout << lcm(a, b);
         }
+        cout << endl;
     }
 }
 /************************************/

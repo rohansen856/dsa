@@ -99,24 +99,69 @@ int main()
     return 0;
 }
 /************************************/
+
+/************************************/
+
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    string x, y, z;
+    cin >> x >> y >> z;
+
+    char winner;
+    char a = x.at(0);
+    char b = y.at(0);
+    char c = z.at(0);
+
+    if ((a == b && a == c) || (a != b && b != c && c != a))
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << "?" << endl;
+        exit(0);
     }
+
+    if (a == b)
+    {
+        if (c == 'r' && b == 's')
+            winner = 'S';
+
+        else if (c == 's' && b == 'p')
+            winner = 'S';
+
+        else if (c == 'p' && b == 'r')
+            winner = 'S';
+
+        else
+            winner = '?';
+    }
+
+    else if (b == c)
+    {
+        if (a == 'r' && b == 's')
+            winner = 'F';
+
+        else if (a == 's' && b == 'p')
+            winner = 'F';
+
+        else if (a == 'p' && b == 'r')
+            winner = 'F';
+
+        else
+            winner = '?';
+    }
+
+    else if (a == c)
+    {
+        if (b == 'r' && a == 's')
+            winner = 'M';
+
+        else if (b == 's' && a == 'p')
+            winner = 'M';
+
+        else if (b == 'p' && a == 'r')
+            winner = 'M';
+
+        else
+            winner = '?';
+    }
+
+    cout << winner << endl;
 }
-/************************************/

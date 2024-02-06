@@ -1,0 +1,1 @@
+{"name":"Local: 1836A","url":"d:\\dsa\\practice\\1836A.cpp","tests":[{"id":1704444992254,"input":"5\n6\n0 1 2 0 1 0\n9\n0 0 0 0 1 1 1 2 2\n3\n0 0 2\n1\n99\n5\n0 1 2 3 4\n","output":"YES\nYES\nNO\nNO\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\practice\\1836A.cpp","group":"local","local":true}

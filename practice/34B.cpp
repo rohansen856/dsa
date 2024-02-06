@@ -99,24 +99,30 @@ int main()
     return 0;
 }
 /************************************/
+/************************************/
+
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int n, m;
+    cin >> n >> m;
+    vector<int> a;
+    for (int i = 0; i < n; i++)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        int temp;
+        cin >> temp;
+        a.emplace_back(temp);
     }
+    int profit = 0;
+    while (m--)
+    {
+        int temp = *min_element(a.begin(), a.end());
+        if (temp >= 0)
+            break;
+        profit += temp;
+
+        int index = find(a.begin(), a.end(), temp) - a.begin();
+        a.erase(a.begin() + index);
+    }
+
+    cout << abs(profit) << endl;
 }
-/************************************/

@@ -101,22 +101,43 @@ int main()
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        ll n, init = -1;
+        string str;
+        cin >> n;
+        cin >> str;
+        vector<ll> arr;
+        for (ll i = 0; i < str.size(); i++)
         {
-            cout << "YES" << endl;
+            if (str[i] != '0')
+            {
+                init = i;
+                if (init == n - 1)
+                {
+                    arr.pb(init + 1);
+                }
+                else if (init <= n / 2)
+                {
+                    arr.pb(n - init);
+                }
+                else
+                {
+                    arr.pb(init + 1);
+                }
+            }
+        }
+        sort(all(arr));
+        ll len = arr.size();
+        if (init == -1)
+        {
+            out(n);
         }
         else
-        {
-            cout << "NO" << endl;
-        }
+            out(arr[len - 1] * 2);
+        out(endl);
     }
 }
 /************************************/

@@ -101,22 +101,21 @@ int main()
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int n, a, count = 0, res = 0;
+    in(n);
+    for (int i = 0; i < n; i++)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        in(a);
+        count += a;
+    }
+    for (int i = 1; i < 6; i++)
+    {
+        count++;
+        if (count % (n + 1) != 1)
         {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
+            res++;
         }
     }
+    out(res);
 }
 /************************************/

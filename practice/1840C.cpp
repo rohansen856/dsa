@@ -99,24 +99,47 @@ int main()
     return 0;
 }
 /************************************/
+ll cal(ll n, ll q)
+{
+    ll add = 0;
+    for (ll i = q; i <= n; i++)
+    {
+        add += (n - i + 1);
+    }
+    return add;
+}
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        vector<ll> arr;
+        ll n, k, t, a, count = 0, ways = 0;
+        cin >> n >> k >> t;
+        for (ll i = 0; i < n; i++)
         {
-            cout << "YES" << endl;
+            cin >> a;
+            if (a <= t)
+            {
+                count++;
+            }
+            if (count >= k)
+            {
+                arr.pb(count);
+            }
+            count = 0;
         }
-        else
+        if (count >= k)
         {
-            cout << "NO" << endl;
+            arr.pb(count);
         }
+        for (int i = 0; i < arr.size(); i++)
+        {
+            ll calc = cal(arr[i], k);
+            ways += calc;
+        }
+        cout << ways << endl;
     }
 }
 /************************************/

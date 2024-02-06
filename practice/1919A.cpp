@@ -101,22 +101,24 @@ int main()
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        int n;
+        in(n);
+        string str;
+        in(str);
+        ll plus = 0, minus = 0;
+        for (char ch : str)
         {
-            cout << "YES" << endl;
+            if (ch != '+')
+                minus++;
+            else
+                plus++;
         }
-        else
-        {
-            cout << "NO" << endl;
-        }
+
+        cout << (abs(plus - minus)) << endl;
     }
 }
 /************************************/

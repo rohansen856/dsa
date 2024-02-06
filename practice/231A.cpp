@@ -94,29 +94,25 @@ int main()
     freopen("Error.txt", "w", stderr);
 #endif
     fio;
-    srand(chrono::high_resolution_clock::now().time_since_epoch().count());
+
     solution();
     return 0;
 }
 /************************************/
 void solution()
 {
-    int tt = 1;
-    in(tt);
-    while (tt--)
+    int t, count = 0;
+    cin >> t;
+    while (t--)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        vector<int> nums = {a, b, c};
-        sort(nums.begin(), nums.end());
-        if ((nums[2] / nums[0]) <= 3)
+        int a[3];
+        cin >> a[0] >> a[1] >> a[2];
+        if ((a[0] + a[1] + a[2]) > 1)
         {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
+            /* code */
+            count++;
         }
     }
+    out(count);
 }
 /************************************/
