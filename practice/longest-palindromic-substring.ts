@@ -1,32 +1,38 @@
+function expandAroundCenter(s: string, left: number, right: number): number {
+    while (left >= 0 && right < s.length && s[left] === s[right]) {
+        left--;
+        right++;
+    }
+
+    return right - left - 1;
+}
+
 function longestPalindrome(s: string): string {
-    const len = s.length;
+    let start: number = 0;
+    let end: number = 0;
 
-    let maxLength = 1, startPt = 0;
+    for (let i = 0; i < s.length; i++) {
+        let left = i, right = i;
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            left--;
+            right++;
+        }
+        const evenLen: number = right - left - 1;
 
-    for (let i = 0; i < len; i++) {
-        let start = i, end = i;
-        let resLen = 0
-        if (s[start - 1] === s[start] || s[start + 1] === s[start]) {
-            if (s[start - 1] === s[start]) {
-                startPt = start
-                maxLength = 2
-            }
+        left = i, right = i + 1;
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            left--;
+            right++;
         }
-        while (s[start - 1] === s[end + 1] && start > -1 && end < len) {
-            start--;
-            end++;
-        }
-        resLen = end - start + 1
-        if (resLen >= maxLength) {
-            startPt = start;
-            maxLength = resLen
+        const oddLen: number = right - left - 1;
+
+        let ans = evenLen > oddLen ? evenLen : oddLen
+
+        if (ans > end - start) {
+            start = i - Math.floor((ans - 1) / 2);
+            end = i + Math.floor(ans / 2);
         }
     }
 
-    let res = ""
-    for (let i = startPt; i < startPt + maxLength; i++)
-        res += (s[i] === undefined ? "" : s[i]);
-    return res
-}
-
-console.log(longestPalindrome("sstss"))
+    return s.substring(start, end + 1);
+};
